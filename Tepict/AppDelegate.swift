@@ -21,14 +21,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.statusItem.button?.title = "IM"
         self.statusItem.menu = self.menu
         
-        self.subscribeNotifications()
+        self.subscribeDistributedNotifications()
+        self.subscribeWorkspaceNotifications()
     }
     
     func applicationDidResignActive(_ notification: Notification) {
         DistributedNotificationCenter.default().suspended = false
     }
     
-    private func subscribeNotifications() {
+    private func subscribeDistributedNotifications() {
         DistributedNotificationCenter.default().addObserver(
             forName: ShowImageNotification,
             object: NotificationSender,
@@ -36,8 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 print("show")
                 self.panel?.close()
                 let previewView = ImagePreviewView(imagePath: notification.userInfo![imagePathKey] as! String)
-                let rect = CGRect(x: 0, y: 0, width: 500, height: 500)
-                let panel = NSPanel(contentRect: rect,
+                let panel = NSPanel(contentRect: getPreviewWindowRect(),
                                     styleMask: .nonactivatingPanel,
                                     backing: .buffered,
                                     defer: true)
@@ -53,6 +53,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 print("close")
                 self.panel?.close()
         }
+    }
+    
+    private func subscribeWorkspaceNotifications() {
+        NSWorkspace.shared.notificationCenter
+            .addObserver(forName: NSWorkspace.didActivateApplicationNotification,
+                         object: nil,
+                         queue: nil) { notification in
+                            let runningApplication = notification.userInfo?["NSWorkspaceApplicationKey"] as! NSRunningApplication
+                            if runningApplication.bundleIdentifier == "com.apple.Terminal" {
+                                self.panel?.makeKeyAndOrderFront(nil)
+                            }
+                            else {
+                                self.panel?.close()
+                            }
+                            
+            }
     }
 }
 
