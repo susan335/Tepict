@@ -9,13 +9,28 @@
 import SwiftUI
 
 struct ImagePreviewView: View {
+    let nsImage: NSImage?
+    
+    init(imagePath: String) {
+        self.nsImage = NSImage(contentsOfFile: imagePath)
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            if self.nsImage != nil {
+                Image(nsImage: nsImage!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            else {
+                Text("Image loading failed.")
+            }
+        }
     }
 }
 
 struct ImagePreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePreviewView()
+        ImagePreviewView(imagePath: "/tmp/kanna.png")
     }
 }

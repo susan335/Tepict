@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0822732C240362C200AFB3C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822732B240362C200AFB3C8 /* AppDelegate.swift */; };
-		0822732E240362C200AFB3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822732D240362C200AFB3C8 /* ContentView.swift */; };
 		08227330240362C300AFB3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0822732F240362C300AFB3C8 /* Assets.xcassets */; };
 		08227333240362C300AFB3C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08227332240362C300AFB3C8 /* Preview Assets.xcassets */; };
 		08227336240362C300AFB3C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08227334240362C300AFB3C8 /* Main.storyboard */; };
@@ -16,6 +15,7 @@
 		082273532403672500AFB3C8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082273522403672500AFB3C8 /* main.swift */; };
 		082273592403678C00AFB3C8 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082273582403678C00AFB3C8 /* Define.swift */; };
 		0822735A2403678C00AFB3C8 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082273582403678C00AFB3C8 /* Define.swift */; };
+		0822735C24036D2700AFB3C8 /* ImagePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822735B24036D2700AFB3C8 /* ImagePreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 /* Begin PBXFileReference section */
 		08227328240362C200AFB3C8 /* Tepict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tepict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0822732B240362C200AFB3C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0822732D240362C200AFB3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0822732F240362C300AFB3C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08227332240362C300AFB3C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		08227335240362C300AFB3C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		082273502403672500AFB3C8 /* TepictLauncher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TepictLauncher; sourceTree = BUILT_PRODUCTS_DIR; };
 		082273522403672500AFB3C8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		082273582403678C00AFB3C8 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		0822735B24036D2700AFB3C8 /* ImagePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				0822732B240362C200AFB3C8 /* AppDelegate.swift */,
-				0822732D240362C200AFB3C8 /* ContentView.swift */,
+				0822735B24036D2700AFB3C8 /* ImagePreviewView.swift */,
 				0822732F240362C300AFB3C8 /* Assets.xcassets */,
 				08227334240362C300AFB3C8 /* Main.storyboard */,
 				08227337240362C300AFB3C8 /* Info.plist */,
@@ -272,7 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0822732E240362C200AFB3C8 /* ContentView.swift in Sources */,
+				0822735C24036D2700AFB3C8 /* ImagePreviewView.swift in Sources */,
 				082273592403678C00AFB3C8 /* Define.swift in Sources */,
 				0822732C240362C200AFB3C8 /* AppDelegate.swift in Sources */,
 			);
