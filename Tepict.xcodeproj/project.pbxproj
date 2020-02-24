@@ -13,6 +13,9 @@
 		08227333240362C300AFB3C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08227332240362C300AFB3C8 /* Preview Assets.xcassets */; };
 		08227336240362C300AFB3C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08227334240362C300AFB3C8 /* Main.storyboard */; };
 		08227342240362C300AFB3C8 /* TepictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08227341240362C300AFB3C8 /* TepictTests.swift */; };
+		082273532403672500AFB3C8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082273522403672500AFB3C8 /* main.swift */; };
+		082273592403678C00AFB3C8 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082273582403678C00AFB3C8 /* Define.swift */; };
+		0822735A2403678C00AFB3C8 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082273582403678C00AFB3C8 /* Define.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +27,18 @@
 			remoteInfo = Tepict;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0822734E2403672500AFB3C8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		08227328240362C200AFB3C8 /* Tepict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tepict.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +52,9 @@
 		0822733D240362C300AFB3C8 /* TepictTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TepictTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08227341240362C300AFB3C8 /* TepictTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TepictTests.swift; sourceTree = "<group>"; };
 		08227343240362C300AFB3C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		082273502403672500AFB3C8 /* TepictLauncher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TepictLauncher; sourceTree = BUILT_PRODUCTS_DIR; };
+		082273522403672500AFB3C8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		082273582403678C00AFB3C8 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0822734D2403672500AFB3C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -61,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				0822732A240362C200AFB3C8 /* Tepict */,
+				082273512403672500AFB3C8 /* TepictLauncher */,
+				082273572403675000AFB3C8 /* Common */,
 				08227340240362C300AFB3C8 /* TepictTests */,
 				08227329240362C200AFB3C8 /* Products */,
 			);
@@ -71,6 +98,7 @@
 			children = (
 				08227328240362C200AFB3C8 /* Tepict.app */,
 				0822733D240362C300AFB3C8 /* TepictTests.xctest */,
+				082273502403672500AFB3C8 /* TepictLauncher */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +132,22 @@
 				08227343240362C300AFB3C8 /* Info.plist */,
 			);
 			path = TepictTests;
+			sourceTree = "<group>";
+		};
+		082273512403672500AFB3C8 /* TepictLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				082273522403672500AFB3C8 /* main.swift */,
+			);
+			path = TepictLauncher;
+			sourceTree = "<group>";
+		};
+		082273572403675000AFB3C8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				082273582403678C00AFB3C8 /* Define.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +188,23 @@
 			productReference = 0822733D240362C300AFB3C8 /* TepictTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0822734F2403672500AFB3C8 /* TepictLauncher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 082273542403672500AFB3C8 /* Build configuration list for PBXNativeTarget "TepictLauncher" */;
+			buildPhases = (
+				0822734C2403672500AFB3C8 /* Sources */,
+				0822734D2403672500AFB3C8 /* Frameworks */,
+				0822734E2403672500AFB3C8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TepictLauncher;
+			productName = TepictLauncher;
+			productReference = 082273502403672500AFB3C8 /* TepictLauncher */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,6 +222,9 @@
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 08227327240362C200AFB3C8;
 					};
+					0822734F2403672500AFB3C8 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 08227323240362C200AFB3C8 /* Build configuration list for PBXProject "Tepict" */;
@@ -177,6 +241,7 @@
 			projectRoot = "";
 			targets = (
 				08227327240362C200AFB3C8 /* Tepict */,
+				0822734F2403672500AFB3C8 /* TepictLauncher */,
 				0822733C240362C300AFB3C8 /* TepictTests */,
 			);
 		};
@@ -208,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0822732E240362C200AFB3C8 /* ContentView.swift in Sources */,
+				082273592403678C00AFB3C8 /* Define.swift in Sources */,
 				0822732C240362C200AFB3C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +283,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				08227342240362C300AFB3C8 /* TepictTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0822734C2403672500AFB3C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0822735A2403678C00AFB3C8 /* Define.swift in Sources */,
+				082273532403672500AFB3C8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +520,30 @@
 			};
 			name = Release;
 		};
+		082273552403672500AFB3C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = WLN29ZWFG6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		082273562403672500AFB3C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = WLN29ZWFG6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -471,6 +570,15 @@
 			buildConfigurations = (
 				0822734A240362C300AFB3C8 /* Debug */,
 				0822734B240362C300AFB3C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		082273542403672500AFB3C8 /* Build configuration list for PBXNativeTarget "TepictLauncher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				082273552403672500AFB3C8 /* Debug */,
+				082273562403672500AFB3C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
