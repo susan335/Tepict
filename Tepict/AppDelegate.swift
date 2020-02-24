@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                          object: nil,
                          queue: nil) { notification in
                             let runningApplication = notification.userInfo?["NSWorkspaceApplicationKey"] as! NSRunningApplication
-                            if runningApplication.bundleIdentifier == "com.apple.Terminal" {
+                            if runningApplication.bundleIdentifier == TerminalAppBundleId {
                                 self.panel?.makeKeyAndOrderFront(nil)
                             }
                             else {

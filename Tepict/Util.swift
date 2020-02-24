@@ -9,11 +9,15 @@
 import Cocoa
 
 func getTerminalAppWindowRect() -> CGRect {
+    let terminalApp = NSWorkspace.shared.runningApplications.first { (runApp) -> Bool in
+        runApp.bundleIdentifier == TerminalAppBundleId
+    }!
+    
     guard let windowList: NSArray = CGWindowListCopyWindowInfo(.optionOnScreenOnly, kCGNullWindowID) else {
         fatalError()
     }
     let windowRect = (windowList as! [NSDictionary])
-        .filter { $0[kCGWindowOwnerName] as! NSString == "ターミナル" }
+        .filter { $0[kCGWindowOwnerPID] as! Int32 == terminalApp.processIdentifier }
         .map { windowDic -> CGRect in
             let windowBounds = windowDic[kCGWindowBounds] as! CFDictionary
             return CGRect(dictionaryRepresentation: windowBounds) ?? .zero

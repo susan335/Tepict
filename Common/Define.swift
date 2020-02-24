@@ -15,3 +15,5 @@ let DismissNotification = Notification.Name("DismissNotification")
 let NotificationSender = "tech.watanave.Tepict"
 
 let imagePathKey = "ImagePath"
+
+let TerminalAppBundleId = "com.apple.Terminal"
