@@ -17,6 +17,7 @@
 		0822735A2403678C00AFB3C8 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082273582403678C00AFB3C8 /* Define.swift */; };
 		0822735C24036D2700AFB3C8 /* ImagePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822735B24036D2700AFB3C8 /* ImagePreviewView.swift */; };
 		085DE43D2403826600923B85 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085DE43C2403826600923B85 /* Util.swift */; };
+		085DE44424039ED100923B85 /* PreviewLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085DE44324039ED100923B85 /* PreviewLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		082273582403678C00AFB3C8 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		0822735B24036D2700AFB3C8 /* ImagePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewView.swift; sourceTree = "<group>"; };
 		085DE43C2403826600923B85 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		085DE44324039ED100923B85 /* PreviewLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		0822732A240362C200AFB3C8 /* Tepict */ = {
 			isa = PBXGroup;
 			children = (
+				085DE44224039EB600923B85 /* Model */,
 				0822732B240362C200AFB3C8 /* AppDelegate.swift */,
 				0822735B24036D2700AFB3C8 /* ImagePreviewView.swift */,
 				085DE43C2403826600923B85 /* Util.swift */,
@@ -151,6 +154,14 @@
 				082273582403678C00AFB3C8 /* Define.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		085DE44224039EB600923B85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				085DE44324039ED100923B85 /* PreviewLocation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +290,7 @@
 				082273592403678C00AFB3C8 /* Define.swift in Sources */,
 				0822732C240362C200AFB3C8 /* AppDelegate.swift in Sources */,
 				085DE43D2403826600923B85 /* Util.swift in Sources */,
+				085DE44424039ED100923B85 /* PreviewLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
