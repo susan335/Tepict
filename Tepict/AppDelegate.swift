@@ -14,11 +14,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var menu: NSMenu!
     var statusItem: NSStatusItem!
-    var panel: NSPanel?
+    var previewPanel: NSPanel?
+    var preferencePanel: NSPanel?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        self.statusItem.button?.title = "IM"
+        self.statusItem.button?.title = "Tep"
         self.statusItem.menu = self.menu
         
         self.subscribeDistributedNotifications()
@@ -35,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             object: NotificationSender,
             queue: nil) { notification in
                 print("show")
-                self.panel?.close()
+                self.previewPanel?.close()
                 let previewView = ImagePreviewView(imagePath: notification.userInfo![imagePathKey] as! String)
                 let panel = NSPanel(contentRect: getPreviewWindowRect(),
                                     styleMask: .nonactivatingPanel,
@@ -44,14 +45,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 panel.level = NSWindow.Level.floating
                 panel.contentView = NSHostingView(rootView: previewView)
                 panel.makeKeyAndOrderFront(nil)
-                self.panel = panel
+                self.previewPanel = panel
         }
         DistributedNotificationCenter.default().addObserver(
             forName: DismissNotification,
             object: NotificationSender,
             queue: nil) { notification in
                 print("close")
-                self.panel?.close()
+                self.previewPanel?.close()
         }
     }
     
@@ -62,13 +63,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                          queue: nil) { notification in
                             let runningApplication = notification.userInfo?["NSWorkspaceApplicationKey"] as! NSRunningApplication
                             if runningApplication.bundleIdentifier == TerminalAppBundleId {
-                                self.panel?.makeKeyAndOrderFront(nil)
+                                self.previewPanel?.makeKeyAndOrderFront(nil)
                             }
                             else {
-                                self.panel?.close()
+                                self.previewPanel?.close()
                             }
                             
             }
+    }
+    
+    @IBAction func showPreference(_ sender: Any) {
+        let preferencePanel: NSPanel
+        if let panel = self.preferencePanel {
+            preferencePanel = panel
+        }
+        else {
+            preferencePanel = NSPanel()
+            preferencePanel.contentView = NSHostingView(
+                rootView: PreferenceView()
+            )
+            self.preferencePanel = preferencePanel
+        }
+        
+        preferencePanel.makeKeyAndOrderFront(nil)
     }
 }
 
