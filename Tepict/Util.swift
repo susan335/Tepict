@@ -37,7 +37,7 @@ func getPreviewWindowRect() -> CGRect {
         rect = terminalAppWindowRect
     case .top:
         rect = NSRect(x: terminalAppWindowRect.minX,
-                      y: terminalAppWindowRect.midY,
+                      y: terminalAppWindowRect.minY,
                       width: terminalAppWindowRect.width,
                       height: terminalAppWindowRect.height / 2)
     case .bottom:
@@ -58,10 +58,8 @@ func getPreviewWindowRect() -> CGRect {
     }
     
     let margin: CGFloat = 10
-    let offset: CGFloat = 50
     let affineTransform = CGAffineTransform(translationX: 0, y: screenFrame.height)
         .scaledBy(x: 1, y: -1)
-        .translatedBy(x: 0, y: offset + (margin / 2))
     return rect.applying(affineTransform)
-        .insetBy(dx: margin, dy: offset + margin)
+        .insetBy(dx: margin, dy: margin)
 }
