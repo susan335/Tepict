@@ -18,6 +18,7 @@
 		0822735C24036D2700AFB3C8 /* ImagePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822735B24036D2700AFB3C8 /* ImagePreviewView.swift */; };
 		085DE43D2403826600923B85 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085DE43C2403826600923B85 /* Util.swift */; };
 		085DE44424039ED100923B85 /* PreviewLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085DE44324039ED100923B85 /* PreviewLocation.swift */; };
+		088414F724041A2200E598C1 /* SmartUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 088414F624041A2200E598C1 /* SmartUserDefaults */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				088414F724041A2200E598C1 /* SmartUserDefaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +182,9 @@
 			dependencies = (
 			);
 			name = Tepict;
+			packageProductDependencies = (
+				088414F624041A2200E598C1 /* SmartUserDefaults */,
+			);
 			productName = Tepict;
 			productReference = 08227328240362C200AFB3C8 /* Tepict.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +255,9 @@
 				Base,
 			);
 			mainGroup = 0822731F240362C200AFB3C8;
+			packageReferences = (
+				088414F524041A2200E598C1 /* XCRemoteSwiftPackageReference "SmartUserDefaults" */,
+			);
 			productRefGroup = 08227329240362C200AFB3C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -600,6 +608,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		088414F524041A2200E598C1 /* XCRemoteSwiftPackageReference "SmartUserDefaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/susan335/SmartUserDefaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		088414F624041A2200E598C1 /* SmartUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 088414F524041A2200E598C1 /* XCRemoteSwiftPackageReference "SmartUserDefaults" */;
+			productName = SmartUserDefaults;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 08227320240362C200AFB3C8 /* Project object */;
 }
