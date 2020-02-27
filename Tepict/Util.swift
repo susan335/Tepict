@@ -31,10 +31,31 @@ func getPreviewWindowRect() -> CGRect {
     let terminalAppWindowRect = getTerminalAppWindowRect()
     let screenFrame = NSScreen.main!.frame
     print("screenFrame = \(screenFrame)");
-    let rect = NSRect(x: terminalAppWindowRect.minX + terminalAppWindowRect.width / 2,
+    let rect: NSRect
+    switch UserData().previewLocation {
+    case .full:
+        rect = terminalAppWindowRect
+    case .top:
+        rect = NSRect(x: terminalAppWindowRect.minX,
+                      y: terminalAppWindowRect.midY,
+                      width: terminalAppWindowRect.width,
+                      height: terminalAppWindowRect.height / 2)
+    case .bottom:
+        rect = NSRect(x: terminalAppWindowRect.minX,
+                      y: terminalAppWindowRect.midY,
+                      width: terminalAppWindowRect.width,
+                      height: terminalAppWindowRect.height / 2)
+    case .left:
+        rect = NSRect(x: terminalAppWindowRect.minX,
                       y: terminalAppWindowRect.minY,
                       width: terminalAppWindowRect.width / 2,
                       height: terminalAppWindowRect.height)
+    case .right:
+        rect = NSRect(x: terminalAppWindowRect.midX,
+                      y: terminalAppWindowRect.minY,
+                      width: terminalAppWindowRect.width / 2,
+                      height: terminalAppWindowRect.height)
+    }
     
     let margin: CGFloat = 10
     let offset: CGFloat = 50
