@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var menu: NSMenu!
     var statusItem: NSStatusItem!
     var previewPanel: NSPanel?
-    var preferencePanel: NSPanel?
+    var preferenceWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -53,6 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             queue: nil) { notification in
                 print("close")
                 self.previewPanel?.close()
+                self.previewPanel = nil
         }
     }
     
@@ -73,19 +74,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func showPreference(_ sender: Any) {
-        let preferencePanel: NSPanel
-        if let panel = self.preferencePanel {
-            preferencePanel = panel
+        let preferenceWindow: NSWindow
+        if let window = self.preferenceWindow {
+            preferenceWindow = window
         }
         else {
-            preferencePanel = NSPanel()
-            preferencePanel.contentView = NSHostingView(
+            preferenceWindow = NSWindow()
+            preferenceWindow.contentView = NSHostingView(
                 rootView: PreferenceView()
             )
-            self.preferencePanel = preferencePanel
+            self.preferenceWindow = preferenceWindow
         }
         
-        preferencePanel.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+        preferenceWindow.makeKeyAndOrderFront(sender)
     }
 }
 
