@@ -29,8 +29,12 @@ func getTerminalAppWindowRect() -> CGRect {
 
 func getPreviewWindowRect() -> CGRect {
     let terminalAppWindowRect = getTerminalAppWindowRect()
-    let screenFrame = NSScreen.main!.frame
-    print("screenFrame = \(screenFrame)");
+    let mainScreenFrame = NSScreen.main!.frame
+    print("terminalAppWindowRect = \(terminalAppWindowRect)")
+    print("screenFrame = \(mainScreenFrame)")
+    let primaryScreenFrame = NSScreen.screens.first!.frame
+    print("primaryScreenFrame = \(primaryScreenFrame)")
+    let offsetY = mainScreenFrame.minY >= 0 ? 0 : primaryScreenFrame.height - mainScreenFrame.height
     let rect: NSRect
     switch UserData().previewLocation {
     case .full:
@@ -58,8 +62,9 @@ func getPreviewWindowRect() -> CGRect {
     }
     
     let margin: CGFloat = 10
-    let affineTransform = CGAffineTransform(translationX: 0, y: screenFrame.height)
+    let affineTransform = CGAffineTransform(translationX: 0, y: mainScreenFrame.height)
         .scaledBy(x: 1, y: -1)
+        .translatedBy(x: 0, y: -offsetY)
     return rect.applying(affineTransform)
-        .insetBy(dx: margin, dy: margin)
+//        .insetBy(dx: margin, dy: margin)
 }
