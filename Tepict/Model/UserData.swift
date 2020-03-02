@@ -21,14 +21,31 @@ class UserData: ObservableObject {
         }
     }
     
-    @UserDefaultsProperty(key: "leftOffset", defaultValue: 0)
-    var leftOffset: CGFloat {
+    @UserDefaultsProperty(key: "leftOffset", defaultValue: "")
+    var leftOffset: String {
         willSet {
             objectWillChange.send()
         }
     }
-//    @Published var topOffset: CGFloat
-//    @Published var rightOffset: CGFloat
-//    @Published var bottomOffset: CGFloat
-//    
+    
+    @UserDefaultsProperty(key: "topOffset", defaultValue: "")
+    var topOffset: String {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @UserDefaultsProperty(key: "rightOffset", defaultValue: "")
+    var rightOffset: String {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @UserDefaultsProperty(key: "bottomOffset", defaultValue: "")
+    var bottomOffset: String {
+        willSet {
+            objectWillChange.send()
+        }
+    }
 }

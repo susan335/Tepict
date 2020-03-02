@@ -28,30 +28,30 @@ struct PreferenceView: View {
             
             Spacer().frame(height: 40)
             
-//            HStack {
-//                Text("Left offset: ")
-//                    .frame(width: 100, alignment: .trailing)
-//                TextField("0px", text: $settings.leftOffset)
-//                    .frame(width: 100, alignment: .leading)
-//            }
-//            HStack {
-//                Text("Top offset: ")
-//                    .frame(width: 100, alignment: .trailing)
-//                TextField("0px", text: $leftOffset)
-//                    .frame(width: 100, alignment: .leading)
-//            }
-//            HStack {
-//                Text("Right offset: ")
-//                    .frame(width: 100, alignment: .trailing)
-//                TextField("0px", text: $leftOffset)
-//                    .frame(width: 100, alignment: .leading)
-//            }
-//            HStack {
-//                Text("Bottom offset: ")
-//                    .frame(width: 100, alignment: .trailing)
-//                TextField("0px", text: $leftOffset)
-//                    .frame(width: 100, alignment: .leading)
-//            }
+            HStack {
+                Text("Left offset: ")
+                    .frame(width: 100, alignment: .trailing)
+                TextField("0", text: $settings.leftOffset)
+                    .frame(width: 100)
+            }
+            HStack {
+                Text("Top offset: ")
+                    .frame(width: 100, alignment: .trailing)
+                TextField("0", text: $settings.topOffset)
+                    .frame(width: 100)
+            }
+            HStack {
+                Text("Right offset: ")
+                    .frame(width: 100, alignment: .trailing)
+                TextField("0", text: $settings.rightOffset)
+                    .frame(width: 100)
+            }
+            HStack {
+                Text("Bottom offset: ")
+                    .frame(width: 100, alignment: .trailing)
+                TextField("0", text: $settings.bottomOffset)
+                    .frame(width: 100)
+            }
         }
         .frame(width: 300, height: 400, alignment: .center)
     }

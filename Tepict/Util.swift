@@ -36,7 +36,8 @@ func getPreviewWindowRect() -> CGRect {
     print("primaryScreenFrame = \(primaryScreenFrame)")
     let offsetY = mainScreenFrame.minY >= 0 ? 0 : primaryScreenFrame.height - mainScreenFrame.height
     let rect: NSRect
-    switch UserData().previewLocation {
+    let userData = UserData()
+    switch userData.previewLocation {
     case .full:
         rect = terminalAppWindowRect
     case .top:
@@ -61,10 +62,20 @@ func getPreviewWindowRect() -> CGRect {
                       height: terminalAppWindowRect.height)
     }
     
-    let margin: CGFloat = 10
     let affineTransform = CGAffineTransform(translationX: 0, y: mainScreenFrame.height)
         .scaledBy(x: 1, y: -1)
         .translatedBy(x: 0, y: -offsetY)
-    return rect.applying(affineTransform)
-//        .insetBy(dx: margin, dy: margin)
+    var previewWindowFrame = rect.applying(affineTransform)
+    let leftOffset = CGFloat(Float(userData.leftOffset) ?? 0)
+    let topOffset = CGFloat(Float(userData.topOffset) ?? 0)
+    let rightOffset = CGFloat(Float(userData.rightOffset) ?? 0)
+    let bottomOffset = CGFloat(Float(userData.bottomOffset) ?? 0)
+    previewWindowFrame.origin.x += leftOffset
+    previewWindowFrame.size.width -= leftOffset
+    previewWindowFrame.size.width -= rightOffset
+    previewWindowFrame.origin.y += bottomOffset
+    previewWindowFrame.size.height -= bottomOffset
+    previewWindowFrame.size.height -= topOffset
+    
+    return previewWindowFrame
 }
