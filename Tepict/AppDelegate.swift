@@ -79,15 +79,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             preferenceWindow = window
         }
         else {
-            preferenceWindow = NSWindow()
+            preferenceWindow = NSWindow(contentRect: NSRect.zero,
+                                        styleMask: [.closable, .titled],
+                                        backing: .buffered,
+                                        defer: true)
             preferenceWindow.contentView = NSHostingView(
                 rootView: PreferenceView()
             )
             self.preferenceWindow = preferenceWindow
+            preferenceWindow.isReleasedWhenClosed = false
         }
         
-        NSApp.activate(ignoringOtherApps: true)
-        preferenceWindow.makeKeyAndOrderFront(sender)
+        preferenceWindow.orderFront(sender)
     }
 }
 
