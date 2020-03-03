@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        self.statusItem.button?.title = "Tep"
+        self.statusItem.button?.title = "TP"
         self.statusItem.menu = self.menu
         
         self.subscribeDistributedNotifications()
@@ -79,18 +79,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             preferenceWindow = window
         }
         else {
-            preferenceWindow = NSWindow(contentRect: NSRect.zero,
+            var frame = NSRect.zero
+            if let screenFrame = NSScreen.main?.frame {
+                frame = frame.offsetBy(dx: screenFrame.midX, dy: screenFrame.midY)
+            }
+            preferenceWindow = NSWindow(contentRect: frame,
                                         styleMask: [.closable, .titled],
                                         backing: .buffered,
                                         defer: true)
+            preferenceWindow.level = NSWindow.Level.normal
             preferenceWindow.contentView = NSHostingView(
                 rootView: PreferenceView()
             )
             self.preferenceWindow = preferenceWindow
             preferenceWindow.isReleasedWhenClosed = false
+            preferenceWindow.makeKey()
         }
         
-        preferenceWindow.orderFront(sender)
+        preferenceWindow.orderFrontRegardless()
     }
 }
 
